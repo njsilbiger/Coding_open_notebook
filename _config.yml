@@ -9,7 +9,7 @@ name: Nyssa Silbiger
 description: Postdoctoral Research at the Unversity of California, Irvine
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: "/Silbiger_coding_notebook/images/NyssaMath.JPG"
+avatar: "images/NyssaMath.JPG"
 #
 # Flags below are optional
 #
@@ -46,7 +46,7 @@ url: http://njsilbiger.github.io
 # (http://yourusername.github.io/repository-name)
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
-baseurl: "/Silbiger_coding_notebook"
+baseurl: 
 
 #
 # !! You don't need to change any of the configuration flags below !!
