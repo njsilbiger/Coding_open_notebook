@@ -7,12 +7,6 @@ name: Nyssa Silbiger
 
 # Short bio or description (displayed in the header)
 description: Postdoctoral Research at the Unversity of California, Irvine
-This is an open lab notebook created by Dr. Nyssa Silbiger. Here, you will find posts based on weekly coding sessions. Each week I give short lesson on a specific coding in R problem. All those lessons will be posted here. Also, I will be posting any coding roadblocks from all members of the group and (hopefully) their solutions.
-
-```R
-# Let's get to coding! 
-me<-c('excited,'to','code')
-```
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: /images/NyssaMath.jpg
