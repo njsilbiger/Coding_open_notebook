@@ -4,8 +4,6 @@ title: Weekly Syllabus
 permalink: /about/
 ---
 
-### Weekly Syllabus
-
 **Week 1** - Set up a project and best practices for file structure and scripts
 
 **Week 2** - Simple plotting
