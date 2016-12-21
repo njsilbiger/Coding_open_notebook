@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Weekly Syllabus
-permalink: /about/
+permalink: /Syllabus/
 ---
 
 ### Weekly Syllabus
