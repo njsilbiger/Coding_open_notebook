@@ -4,11 +4,28 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+### Weekly Syllabus
 
-### More Information
+**Week 1** - Set up a project and best practices for file structure and scripts
 
-A place to include any other types of information that you'd like to include about yourself.
+**Week 2** - Simple plotting
+
+**Week 3** - Calculating summary statistics using ddply
+
+**Week 4** - Intro to simple linear models and mixed effects models using the lme4 package
+
+**Week 5** - Intro to generalized linear models using glm
+
+**Week 6** - Intro to loops and logical statements 
+
+**Week 7** - Intro to multivariate stats using the Vegan package (pca)
+
+**Week 8** - TBA
+
+**Week 9** - TBA
+
+**Week 10** - TBA
+
 
 ### Contact me
 
