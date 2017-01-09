@@ -18,10 +18,12 @@ Here is how you create a project:
 
 1. Open R Studio  
 2. Notice the Projects icon in the right hand corner 
- ![](https://github.com/njsilbiger/Lets_Code/Images/Week1/WhereIsProjects.jpg) 
-
  
-![My helpful screenshot]({{ njsilbiger.github.io }}/images/WhereIsProjects.jpg)
+![WhereIsProjects]({{ njsilbiger.github.io }}/images/Week1/WhereIsProjects.jpg)  
+3.  Click on the drop down menu and then click on *New Project*...  
+![NewProjects]({{ njsilbiger.github.io }}/images/Week1/ClickNewProject.jpg)  
+
+
 
 ```R
 # Let's get to coding! 
