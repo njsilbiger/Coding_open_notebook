@@ -19,7 +19,7 @@ Here is how you create a project:
 1) Open R Studio  
 2) Notice the Projects icon in the right hand corner 
  
-![WhereIsProjects]({{ njsilbiger.github.io }}/images/Week1/WhereIsProjects.jpg =200x200)
+![WhereIsProjects]({{ njsilbiger.github.io }}/images/Week1/WhereIsProjects.jpg?rawtrue =200x200)
   
 3)  Click on the drop down menu and then click on *New Project*...    
 Notice how I have a bunch of random names (i.e. MASCOT, BioerosionCommunity, CarbonateChemistry).  These are the names of my current projects.
