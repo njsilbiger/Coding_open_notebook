@@ -24,11 +24,11 @@ Here is how you create a project:
 3)  Click on the drop down menu and then click on *New Project*...    
 Notice how I have a bunch of random names (i.e. MASCOT, BioerosionCommunity, CarbonateChemistry).  These are the names of my current projects.
   
-![NewProjects]({{ njsilbiger.github.io }}/images/Week1/ClickNewProject.png =200x200)  
+![NewProjects]({{ njsilbiger.github.io }}/images/Week1/ClickNewProject.png?raw=true =200x200)  
 
 4) Once you click *New Project...*, you will be directed to this interface 
 
-![CreateNewProjects]({{ njsilbiger.github.io }}/images/Week1/CreateNewProject.png =200x200)  
+![CreateNewProjects]({{ njsilbiger.github.io }}/images/Week1/CreateNewProject.png?raw=true =200x200)  
 
 
 ```R
