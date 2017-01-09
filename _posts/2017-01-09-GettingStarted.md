@@ -6,11 +6,11 @@ tags: [Getting started]
 ---
 ##post in progress##
 
-This post focuses on how to start a project, properly set up a script, manage a clean working directory, and importing simple data.
+This post focuses on how to start a project, manage a clean working directory, and properly set up a script.
 
 ----------
 
-**What is a project**   
+**What is a project?**   
 A project is a great way to keep all your different coding projects organized.  Each *project* has its own working directory, workspace, history, and documents. 
 
 Here is how you create a project:  
@@ -68,8 +68,35 @@ A clean working directory looks something like this:
 ![CleanDirectory]({{ njsilbiger.github.io }}/images/Week1/CleanDirectory.png?raw=true =100x100)  
 
 Much better... Now it is time to set-up your script  
+
+----------
+
+**Set-up your first script**  
+
+New coders tend to start there code right away with no comments or explanations of what they are doing. But, again, we want to produce transparent and reproducible research. There have been times where I set-up a script poorly and had to go back to it after a year to re-analyze some data (reviewers always asking to change analysis, aren't they... ;) ). I, the creator of the code, could not figure out for the life of me what I did. It was a painful few days trying to remember why I was doing what I was doing; it definitely could have been avoided by proper coding etiquette.  
+
+This lesson, I am just going to show you what a properly set-up script looks like. Over the next few weeks we will discuss these different sections in more detail.  
+
+Below, I have divided my script up into 6 different sections:  
  
-```R
-# Let's get to coding! 
-me<-c('excited','to','code')
-```
+![CleanScript]({{ njsilbiger.github.io }}/images/Week1/CreatingAScript.jpg?raw=true =300x300) 
+
+Section 1:  Start with a short intro of what your intend to do with your script. Say who you are, the date you created it, and when you last edited it.  
+
+Section 2: Clear the workspace. This section removes everything from your environment.  People have different opinions on this. I always like start with a clean slate so that variables from prior R sessions don't conflict my my new session.  
+
+Section 3:  Load the libraries. Here, I load all the libraries that I need for my code to run.  
+
+Section 4:  Set your working directory.  Luckily, with projects, you will be sent straight to your project working directory.  But, if you have created a sub-directory, like I did here, you will need to navigate to that folder.
+
+Section 5: Functions. If you will be creating your own functions it is best to put them all right up front so that they are available to you for the whole script.  If I have lots of functions, sometimes I will put them in their own script and then source them in so that it is not so messy.  More on that later.  
+
+Section 6: Load data.  This is where you load all your data files.
+
+Section 7 and beyond: All your analysis, which can also be subset into sections if you would like.
+
+Probably the most important advice that I can give you is to comment, comment, comment, and comment some more on your code.  You can never give to many details, but you can definitely give too little.  
+
+For example, look at *section 5* where I wrote a function to calculate the fugosity of CO2 in seawater. I listed all the parameters and what they mean, I commented all the formulas and the units that the output should be in, and I also listed the citation for where the formula came from.  This way if you share the code with a colleague they can see what you are trying to do and where it came from and maybe find any errors.  
+
+OK, now your turn! 
