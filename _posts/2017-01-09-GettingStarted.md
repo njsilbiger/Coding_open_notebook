@@ -24,15 +24,24 @@ Here is how you create a project:
 3)  Click on the drop down menu and then click on *New Project*...    
 Notice how I have a bunch of random names (i.e. MASCOT, BioerosionCommunity, CarbonateChemistry).  These are the names of my current projects.
   
-![NewProjects]({{ njsilbiger.github.io }}/images/Week1/ClickNewProject.png?raw=true =200x200)  
+![NewProjects]({{ njsilbiger.github.io }}/images/Week1/ClickNewProject.png?raw=true =100x100)  
 
 4) Once you click *New Project...*, you will be directed to this interface 
 
-![CreateNewProjects]({{ njsilbiger.github.io }}/images/Week1/CreateNewProject.png?raw=true =200x200)  
+![CreateNewProjects]({{ njsilbiger.github.io }}/images/Week1/CreateNewProject.png?raw=true =100x100)  
 
 5) Click on *Empty Project*
 
 ![EmptyProjects]({{ njsilbiger.github.io }}/images/Week1/EmptyProject.jpg?raw=true =100x100)  
+
+6) Then name your project whatever you would like (I named this one *RCodingClass*) and click *Create Project*.  
+
+![NameProject]({{ njsilbiger.github.io }}/images/Week1/NameProject.jpg?raw=true =100x100)  
+
+7) You will now be directed to your new project directory and you will notice that it now says *RCodingClass* in the top right-hand corner.  
+
+
+![ProjectCreated]({{ njsilbiger.github.io }}/images/Week1/ProjectCreated.jpg?raw=true =100x100) 
 
 
 ```R
