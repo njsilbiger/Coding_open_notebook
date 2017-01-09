@@ -30,6 +30,10 @@ Notice how I have a bunch of random names (i.e. MASCOT, BioerosionCommunity, Car
 
 ![CreateNewProjects]({{ njsilbiger.github.io }}/images/Week1/CreateNewProject.png?raw=true =200x200)  
 
+5) Click on *Empty Project*
+
+![EmptyProjects]({{ njsilbiger.github.io }}/images/Week1/EmptyProject.jpeg?raw=true =100x100)  
+
 
 ```R
 # Let's get to coding! 
