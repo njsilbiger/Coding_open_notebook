@@ -58,16 +58,17 @@ There is nothing worse than having a messy working directory.  One of the major 
 For example, here is *what not to do*.  
 
 
-![BadDirectory]({{ njsilbiger.github.io }}/images/Week1/BadDirectory.jpg?raw=true =100x100)  
+![BadDirectory]({{ njsilbiger.github.io }}/images/Week1/BadDirectory.png?raw=true =100x100)  
 
 Ah! My eyes! You can see that I have all sorts of data files, script files, and images all in the same folder and unless you are me, you can not tell what is what. So, let's set-up our new *RCodingClass* project so that it does not look like a crazy jumble.  
 
 I typically create a minimum of two subfolders in my project directory: one for all my data files (e.g., .csv, etc.) and one for my output files (e.g., saved images). If I am writing a lot of functions, I will sometimes also have a subfolder for my functions and source them into my script. Some people like to also have a subfolder for all of their scripts, but that is personal preference and we will touch more on that later.    
  
 A clean working directory looks something like this:  
-![CleanDirectory]({{ njsilbiger.github.io }}/images/Week1/CleanDirectory.jpg?raw=true =100x100)  
+![CleanDirectory]({{ njsilbiger.github.io }}/images/Week1/CleanDirectory.png?raw=true =100x100)  
 
-Much better... Now it is time to set-up your script 
+Much better... Now it is time to set-up your script  
+ 
 ```R
 # Let's get to coding! 
 me<-c('excited','to','code')
