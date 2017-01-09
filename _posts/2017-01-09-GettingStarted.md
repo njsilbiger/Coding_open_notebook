@@ -21,11 +21,11 @@ Here is how you create a project:
  
 ![WhereIsProjects]({{ njsilbiger.github.io }}/images/Week1/WhereIsProjects.jpg)  
 3.  Click on the drop down menu and then click on *New Project*...  
-![NewProjects]({{ njsilbiger.github.io }}/images/Week1/ClickNewProject.jpg)  
+![NewProjects]({{ njsilbiger.github.io }}/images/Week1/ClickNewProject.png)  
 
 
 
 ```R
 # Let's get to coding! 
-me<-c('excited,'to','code')
+me<-c('excited','to','code')
 ```
