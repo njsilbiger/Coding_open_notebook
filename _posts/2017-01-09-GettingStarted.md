@@ -18,7 +18,7 @@ Here is how you create a project:
 
 1. Open R Studio  
 2. Notice the Projects icon in the right hand corner 
-![WhereIsProjects](njsilbiger.github.io/images/WhereIsProjects.jpg) 
+![WhereIsProjects](njsilbiger.github.io/images/WhereIsProjects.jpg?raw=true =300x300) 
 
  
 ```R
