@@ -15,24 +15,24 @@ How you structure your data in excel is very important. Putting your data in a c
 
 Lauren Pandori, a grad student in the Sorte Lab, supplied me with some of her data for this lesson.  Let's take a look at how she formatted it.
 
-The first time that she sent me here data it was formatted like this:
+The first time that she sent me her data it was formatted like this:
 
 ![ShortFormat]({{ njsilbiger.github.io }}/images/Week2/ShortFormat.png)
 
 There are two issues with this formatting:
-1) It is in short format.  You can see that ever quadrat has its own column.  This is completely fine for analyzing data in excel, but it is not appropriate for R.
+1) It is in short format.  You can see that every quadrat has its own column.  This is completely fine for analyzing data in excel, but it is not appropriate for R.
 2) The names have spaces and non alphanumeric characters in them and they are long. 
 
 Here is an example of this same data, but formatted in a way that is much more amenable to R:
 
 ![LongFormat]({{ njsilbiger.github.io }}/images/Week2/LongFormat.png?raw=true =200x200)
 
-You can see now that every row is a unique data point with all the columns listed the different attributes of that data point. 
+You can see now that every row is a unique data point with all the columns listing the different attributes of that data point. 
 
 ----------
 **Simple Plotting** 
 
-Today we are going to take Lauren's data and make a simple plot. Lauren's data set consists of Mussels counts across 5 different microhabitat types (Tide pools, Unsheltered Solitary, Sheltered Aggregate, and Unsheltered Aggregate) in 3 different tidal zone (Low, Mid, High). She also has 10 replicate quadrats across each tidal zone and microhabitat type. When I asked Lauren how she wanted her data plotted she sent me this picture. :) So, this is what we are going to plot today!
+Today we are going to take Lauren's data and make a simple plot. Lauren's data set consists of mussel counts across 5 different microhabitat types (Tide pools, Unsheltered Solitary, Sheltered Aggregate, and Unsheltered Aggregate) in 3 different tidal zone (Low, Mid, High). She also has 10 replicate quadrats across each tidal zone and microhabitat type. When I asked Lauren how she wanted her data plotted she sent me this picture. :) So, this is what we are going to plot today!
 
 ![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/LaurenDrawing.JPG?raw=true =200x200)
 
@@ -78,9 +78,8 @@ tail(Data)
 Data$X<-NULL
 
 ```
-There is nothing worse than having a messy working directory.  One of the major benefits of coding is to create transparent and reproducible research.  Having a messy directory makes it difficult for outsiders to follow your code/data.
 
-Our data is now in a clean *dataframe* (the name of the data strucutre).  You will notice that there are two different types of data in the dataframe. A *factor* and an *integer*. The factor are discrete data that have levels.  For example, Tide height here is a factor with levels low, mid, and high.  R automatically puts the levels in alphabetical order, but sometimes this does not make sense.  For example, high should go after mid, not before. So now we are going to order the factors a way that makes sense for Lauren's data. 
+Our data are now in a clean *dataframe* (the name of the data strucutre).  You will notice that there are two different types of data in this dataframe. A *factor* and an *integer*. The factor are discrete data that have levels.  For example, Tide height here is a factor with levels low, mid, and high.  R automatically puts the levels in alphabetical order, but sometimes this does not make sense.  For example, high should go after mid, not before. So now we are going to order the factors in a way that makes sense for Lauren's data. 
 
 ```R
 # order the habitat data by level of environmental filtering:
@@ -115,8 +114,7 @@ Data.mean  #notice that it calculated the means and SE in the order that you spe
 
 I now have a new dataframe with the averages and standard error values by each group that I am interested in visualizing. 
 
-Now let's plot the data.
- first let's create a barplot with just the low tide data. Because we have 2 different groupings (Tide height and also Life stage), we need to make the data a matrix with adults on top and juveniles on the bottom. The below code will put the first 5 data points (adults) in one column and then the second 5 in the second column and then I used t to transpose it so that there are 5 columns and 2 rows. 
+Now let's plot the data. First let's create a barplot with just the low tide data. Because we have 2 different groupings (Tide height and also Life stage), we need to make the data a matrix with adults on top and juveniles on the bottom. The below code will put the first 5 data points (adults) in one column and then the second 5 in the second column and then I used t to transpose it so that there are 5 columns and 2 rows. 
 
 ```R
 # I created a matrix for the mean and named it m 
@@ -169,7 +167,7 @@ lines(x[2,],m[2,], lty = 2) # line for juveniles
 ```
 ![LowTide3]({{ njsilbiger.github.io }}/images/Week2/LowTide3.png)
 
-Now, let's say that you want to compare the data across tide heights. We can make multiple subplots in one figure to do that using the par() function.  The par() function basically does all the different types of plot manipulating that you want including changing margins, number of subplots, removing background, and many more. For subplotting we use par(mfrow=c(rows,columns)).  Where you put the number of rows and columns you want in your plot.  Here we have 3 tide heights so we are going to put in 1 row and 3 columns. Then we can copy and paste all the code above, but select data for the mid and high tide heights to make the graph.  In a future lesson, I am going to show you how to do this with a for loop so that it is much more streamlined.
+Now, let's say that you want to compare the data across tide heights. We can make multiple subplots in one figure using the par() function.  The par() function basically does all the different types of plot manipulating that you want, including changing margins, number of subplots, removing background, and many more. For subplotting we use par(mfrow=c(rows,columns)).  Where you put the number of rows and columns you want in your plot.  Here we have 3 tide heights so we are going to put in 1 row and 3 columns. Then we can copy and paste all the code above, but select data for the mid and high tide heights to make the graph.  In a future lesson, I am going to show you how to do this with a for loop so that it is much more streamlined.
 
 ```R
 # let's make 3 columns and one row
@@ -227,9 +225,10 @@ The plot now looks like this.
 ![Subplot1]({{ njsilbiger.github.io }}/images/Week2/Subplot1.png)
 
 **Saving the plot**
-Lastly, we want to save this plot to with specific dimensions so that it comes out perfect every time we run it. You can save a plot in almost any format (e.g., pdf, png, jpg, etc.) Here, I will show you have to save a pdf file.
 
-The code for saving a pdf file is pdf(file = "filename", width = x, height = y), where width and height are in inches.  Note, that now all formats save in inches.  You put this code before your code for the figure that you are creating, then at the end of your figure yo put dev.off().  Which says, turn off the graphics device and save the figure.
+Lastly, we want to save this plot with specific dimensions so that it comes out perfect every time we run it. You can save a plot in almost any format (e.g., pdf, png, jpg, etc.). Here, I will show you have to save a pdf file.
+
+The code for saving a pdf file is pdf(file = "filename", width = x, height = y), where width and height are in inches.  Note, that now all formats save in inches.  This line goes before your code for the figure that you are creating, then at the end of your figure you put dev.off().  Which says, turn off the graphics device and save the figure.
 
 ```R
 pdf(file = 'Output/LaurenBarChart.pdf', width = 8, height = 6) # name the file, put it in your output folder, then say how big you want it to be in inches. 
