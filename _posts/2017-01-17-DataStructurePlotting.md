@@ -8,8 +8,6 @@ This post focuses on proper data structure and some basic plotting techniques.
 
 ----------
 
-## work in progress 
-
 **Data structure**   
 How you structure your data in excel is very important. Putting your data in a complicated structure can make coding very difficult.  The best way to organize your data is by using a long format. 
 
@@ -226,7 +224,7 @@ lines(x[2,],m[2,], lty = 2)
 
 The plot now looks like this.
 
-![Subplot1]({{ njsilbiger.github.io }}/images/Week2/subplot1.png)
+![Subplot1]({{ njsilbiger.github.io }}/images/Week2/Subplot1.png)
 
 **Saving the plot**
 Lastly, we want to save this plot to with specific dimensions so that it comes out perfect every time we run it. You can save a plot in almost any format (e.g., pdf, png, jpg, etc.) Here, I will show you have to save a pdf file.
