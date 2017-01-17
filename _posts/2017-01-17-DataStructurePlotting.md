@@ -19,17 +19,20 @@ Lauren Pandori, a grad student in the Sorte Lab, supplied me with some of her da
 
 The first time that she sent me here data it was formatted like this:
 
-|Microhabitat| Tide Height (L,M,H) | Low | Low  | Low  | Mid | Mid  |Mid | High  |High  |High  |
-| ------------- |:-------------:| -----:|
-| Unsheltered Solitary | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+![ShortFormat]({{ njsilbiger.github.io }}/images/Week2/ShortFormat.png?raw=true =200x200)
 
+There are two issues with this formatting:
+1) It is in short format.  You can see that ever quadrat has its own column.  This is completely fine for analyzing data in excel, but it is not appropriate for R.
+2) The names have spaces and non alphanumeric characters in them and they are long. 
 
-A project is a great way to keep all your different coding projects organized.  Each *project* has its own working directory, workspace, history, and documents. 
+Here is an example of this same data, but formatted in a way that is much more amenable to R:
 
-Here is how you create a project:  
+![LongFormat]({{ njsilbiger.github.io }}/images/Week2/LongFormat.png?raw=true =200x200)
 
+You can see now that every row is a unique data point with all the columns listed the different attributes of that data point. 
+
+----------
+** Simple Plotting** 
 
 1) Open R Studio  
 2) Notice the Projects icon in the right hand corner 
