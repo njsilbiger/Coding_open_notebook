@@ -32,44 +32,41 @@ Here is an example of this same data, but formatted in a way that is much more a
 You can see now that every row is a unique data point with all the columns listed the different attributes of that data point. 
 
 ----------
-** Simple Plotting** 
+**Simple Plotting** 
 
-1) Open R Studio  
-2) Notice the Projects icon in the right hand corner 
- 
-![WhereIsProjects]({{ njsilbiger.github.io }}/images/Week1/WhereIsProjects.jpg?raw=true =200x200)
-  
-3)  Click on the drop down menu and then click on *New Project*...    
-Notice how I have a bunch of random names (i.e. MASCOT, BioerosionCommunity, CarbonateChemistry).  These are the names of my current projects.
-  
-![NewProjects]({{ njsilbiger.github.io }}/images/Week1/ClickNewProject.png?raw=true =100x100)  
+Today we are going to take Lauren's data and make a simple plot. Lauren's data set consists of Mussels counts across 5 different microhabitat types (Tide pools, Unsheltered Solitary, Sheltered Aggregate, and Unsheltered Aggregate) in 3 different tidal zone (Low, Mid, High). She also has 10 replicate quadrats across each tidal zone and microhabitat type. When I asked Lauren how she wanted her data plotted she sent me this picture. :) So, this is what we are going to plot today!
 
-4) Once you click *New Project...*, you will be directed to this interface. Click *New Directory*.  Note this will create a project in your default working directory. If you want to put your project in a different directory like dropbox, my documents, or your local GitHub folder, then click *Existing Directory* and navigate to where you want.  
+![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/LaurenDrawing.jpg?raw=true =200x200)
 
-![CreateNewProjects]({{ njsilbiger.github.io }}/images/Week1/CreateNewProject.png?raw=true =100x100)  
-
-5) Next, click on *Empty Project*
-
-![EmptyProjects]({{ njsilbiger.github.io }}/images/Week1/EmptyProject.jpg?raw=true =100x100)  
-
-6) Then name your project whatever you would like (I named this one *RCodingClass*) and click *Create Project*.  
-
-![NameProject]({{ njsilbiger.github.io }}/images/Week1/NameProject.jpg?raw=true =100x100)  
-
-7) You will now be directed to your new project directory and you will notice that it now says *RCodingClass* in the top right-hand corner.  
-
-
-![ProjectCreated]({{ njsilbiger.github.io }}/images/Week1/ProjectCreated.jpg?raw=true =100x100)  
-
-8) Now, when you click on the drop down menu, you will not notice that *RCodingClass* has been added to the list of projects.   
-
-![ProjectComplete]({{ njsilbiger.github.io }}/images/Week1/ProjectComplete.jpg?raw=true =100x100)  
-
-9) When you have multiple projects, you can click on the project name to navigate between each and pick up right where you left off.
 
 ----------
 
-**Setting up your working directory**  
+**Let's code!**  
+
+First, remember from last week how to properly structure your script. So, let's follow our best practices
+
+```R
+#################################################### 
+# Script to create plot for Lauren's ocean project #
+# Created by Nyssa
+# created on 1/16/2017
+####################################################
+
+## clear workspace---------
+rm(lists=ls())
+
+## set working directory------
+setwd(getwd())
+
+# load libraries------------------
+library(plyr) #need to summarize data 
+
+## Load Data-------------
+Data<-read.csv('Data/PandoriData.csv')
+
+## Data analysis-----------------
+```
+
 
 There is nothing worse than having a messy working directory.  One of the major benefits of coding is to create transparent and reproducible research.  Having a messy directory makes it difficult for outsiders to follow your code/data.
 
