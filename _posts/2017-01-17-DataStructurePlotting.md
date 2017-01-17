@@ -162,34 +162,144 @@ arrows(x, m + mse,  # x , mean + SE
 ```
 ![LowTide2]({{ njsilbiger.github.io }}/images/Week2/LowTide2.png)
 
+Lauren also wanted lines connecting the different data points. To add another layer of lines to the plot we use the functions lines, like so:
+
+```R
+lines(x[1,],m[1,]) # line for adults
+lines(x[2,],m[2,], lty = 2) # line for juveniles
+# I made this line type dashed to make it different from the first using lty=2
+```
+![LowTide3]({{ njsilbiger.github.io }}/images/Week2/LowTide3.png)
+
+Now, let's say that you want to compare the data across tide heights. We can make multiple subplots in one figure to do that using the par() function.  The par() function basically does all the different types of plot manipulating that you want including changing margins, number of subplots, removing background, and many more. For subplotting we use par(mfrow=c(rows,columns)).  Where you put the number of rows and columns you want in your plot.  Here we have 3 tide heights so we are going to put in 1 row and 3 columns. Then we can copy and paste all the code above, but select data for the mid and high tide heights to make the graph.  In a future lesson, I am going to show you how to do this with a for loop so that it is much more streamlined.
+
+```R
+# let's make 3 columns and one row
+par(mfrow=c(1,3))
+#Low tide data
+m<-t(matrix(Data.mean$Abun.Mean[Data.mean$TideHt=='Low'],5,2))
+mse<- t(matrix(Data.mean$Abund.SE[Data.mean$TideHt=='Low'],5,2))    
+# plot
+x<-barplot(m, # m is our mussel mean data
+           beside=TRUE, names.arg = unique(Data.mean$Uhab), ylim=c(0, max(Data.mean$Abun.Mean)+ max(Data.mean$Abund.SE)),
+           main='Low Tide', ylab="Mussel Density")
+#error bars
+arrows(x, m + mse,  # x , mean + SE
+       x, m - mse,  # x, mean - SE
+       angle=90, code=3, length = 0.05)
+# lines
+lines(x[1,],m[1,])
+lines(x[2,],m[2,], lty = 2) 
+
+#Mid tide data
+m<-t(matrix(Data.mean$Abun.Mean[Data.mean$TideHt=='Mid'],5,2))
+mse<- t(matrix(Data.mean$Abund.SE[Data.mean$TideHt=='Mid'],5,2))    
+# plot
+x<-barplot(m, # m is our mussel mean data
+           beside=TRUE, names.arg = unique(Data.mean$Uhab), ylim=c(0, max(Data.mean$Abun.Mean)+ max(Data.mean$Abund.SE)),
+           main='Mid Tide', ylab="Mussel Density")
+#error bars
+arrows(x, m + mse,  # x , mean + SE
+       x, m - mse,  # x, mean - SE
+       angle=90, code=3, length = 0.05)
+# lines
+lines(x[1,],m[1,])
+lines(x[2,],m[2,], lty = 2) 
+
+#Hight tide data
+m<-t(matrix(Data.mean$Abun.Mean[Data.mean$TideHt=='High'],5,2))
+mse<- t(matrix(Data.mean$Abund.SE[Data.mean$TideHt=='High'],5,2))    
+# plot
+# also in this last plot let's add a legend.  We can also manually add a legend outside of this code using the function legend()
+x<-barplot(m, # m is our mussel mean data
+           beside=TRUE, names.arg = unique(Data.mean$Uhab), ylim=c(0, max(Data.mean$Abun.Mean)+ max(Data.mean$Abund.SE)),
+           main='High Tide', ylab="Mussel Density", legend.text = c('Adult','Juvenile'))
+#error bars
+arrows(x, m + mse,  # x , mean + SE
+       x, m - mse,  # x, mean - SE
+       angle=90, code=3, length = 0.05)
+# lines
+lines(x[1,],m[1,])
+lines(x[2,],m[2,], lty = 2) 
+
+```
+
+The plot now looks like this.
+
+![Subplot1]({{ njsilbiger.github.io }}/images/Week2/subplot1.png)
+
+**Saving the plot**
+Lastly, we want to save this plot to with specific dimensions so that it comes out perfect every time we run it. You can save a plot in almost any format (e.g., pdf, png, jpg, etc.) Here, I will show you have to save a pdf file.
+
+The code for saving a pdf file is pdf(file = "filename", width = x, height = y), where width and height are in inches.  Note, that now all formats save in inches.  You put this code before your code for the figure that you are creating, then at the end of your figure yo put dev.off().  Which says, turn off the graphics device and save the figure.
+
+```R
+pdf(file = 'Output/LaurenBarChart.pdf', width = 8, height = 6) # name the file, put it in your output folder, then say how big you want it to be in inches. 
+ 
+ # now put all the code we just ran here
+# and close it with
+
+dev.off() # turn off the device and export the figure
+```
+
+So, all together now
+
+```R
+pdf(file = 'Output/LaurenBarChart.pdf', width = 8, height = 6) # name the 
+
+# let's make 3 columns and one row
+par(mfrow=c(1,3))
+#Low tide data
+m<-t(matrix(Data.mean$Abun.Mean[Data.mean$TideHt=='Low'],5,2))
+mse<- t(matrix(Data.mean$Abund.SE[Data.mean$TideHt=='Low'],5,2))    
+# plot
+x<-barplot(m, # m is our mussel mean data
+           beside=TRUE, names.arg = unique(Data.mean$Uhab), ylim=c(0, max(Data.mean$Abun.Mean)+ max(Data.mean$Abund.SE)),
+           main='Low Tide', ylab="Mussel Density")
+#error bars
+arrows(x, m + mse,  # x , mean + SE
+       x, m - mse,  # x, mean - SE
+       angle=90, code=3, length = 0.05)
+# lines
+lines(x[1,],m[1,])
+lines(x[2,],m[2,], lty = 2) 
+
+#Mid tide data
+m<-t(matrix(Data.mean$Abun.Mean[Data.mean$TideHt=='Mid'],5,2))
+mse<- t(matrix(Data.mean$Abund.SE[Data.mean$TideHt=='Mid'],5,2))    
+# plot
+x<-barplot(m, # m is our mussel mean data
+           beside=TRUE, names.arg = unique(Data.mean$Uhab), ylim=c(0, max(Data.mean$Abun.Mean)+ max(Data.mean$Abund.SE)),
+           main='Mid Tide', ylab="Mussel Density")
+#error bars
+arrows(x, m + mse,  # x , mean + SE
+       x, m - mse,  # x, mean - SE
+       angle=90, code=3, length = 0.05)
+# lines
+lines(x[1,],m[1,])
+lines(x[2,],m[2,], lty = 2) 
+
+#Hight tide data
+m<-t(matrix(Data.mean$Abun.Mean[Data.mean$TideHt=='High'],5,2))
+mse<- t(matrix(Data.mean$Abund.SE[Data.mean$TideHt=='High'],5,2))    
+# plot
+# also in this last plot let's add a legend.  We can also manually add a legend outside of this code using the function legend()
+x<-barplot(m, # m is our mussel mean data
+           beside=TRUE, names.arg = unique(Data.mean$Uhab), ylim=c(0, max(Data.mean$Abun.Mean)+ max(Data.mean$Abund.SE)),
+           main='High Tide', ylab="Mussel Density", legend.text = c('Adult','Juvenile'))
+#error bars
+arrows(x, m + mse,  # x , mean + SE
+       x, m - mse,  # x, mean - SE
+       angle=90, code=3, length = 0.05)
+# lines
+lines(x[1,],m[1,])
+lines(x[2,],m[2,], lty = 2) 
+
+dev.off() # turn off the device and export the figure
+```
+
+Now, your figure is saved in your output folder as a PDF!
 ----------
 
-**Set-up your first script**  
-
-New coders tend to start their code right away with no comments or explanations of what they are doing. But, again, we want to produce transparent and reproducible research. There have been times where I set-up a script poorly and had to go back to it after a year to re-analyze some data (reviewers are always asking to change analyses, aren't they... ;) ). I, the creator of the code, could not figure out for the life of me what I did. It was a painful few days trying to remember why I was doing what I was doing; it definitely could have been avoided by using proper coding etiquette.  
-
-This lesson, I am just going to show you what a properly set-up script looks like. Over the next few weeks we will discuss these different sections in more detail.  
-
-Below, I have divided my script up into 7 different sections:  
- 
-![CleanScript]({{ njsilbiger.github.io }}/images/Week1/CreatingAScript.jpg?raw=true =300x300) 
-
-Section 1:  Start with a short intro of what your intend to do with your script. Say who you are, the date you created it, and when you last edited it.  
-
-Section 2: Clear the workspace. This section removes everything from your environment.  People have different opinions on this. I always like start with a clean slate so that variables from prior R sessions don't conflict my my new session.  
-
-Section 3:  Load the libraries. Here, I load all the libraries that I need for my code to run.  
-
-Section 4:  Set your working directory.  Luckily, with projects, you will be sent straight to your project working directory.  But, if you have created a sub-directory, like I did here, you will need to navigate to that folder.
-
-Section 5: Functions. If you will be creating your own functions it is best to put them all right up front so that they are available for the whole script.  If I have lots of functions, sometimes I will put them in their own script and then source them in so that it is not so messy.  More on that later.  
-
-Section 6: Load data.  This is where you load all your data files.
-
-Section 7 and beyond: All your analyses, which can also be subset into different sections.
-
-**Probably the most important advice that I can give you is to comment, comment, comment, and comment some more on your code.  You can never give too many details, but you can definitely give too little.**  
-
-For example, look at *section 5* where I wrote a function to calculate the fugosity of CO2 in seawater. I listed all the parameters and what they mean, I commented all the formulas and the units that the output should be in, and I also listed the citation for where the formula came from.  This way, if you share the code with a colleague, they can see what you are trying to do and where it came from, and maybe find any errors.  
 
 OK, now your turn! 
