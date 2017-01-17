@@ -36,7 +36,7 @@ You can see now that every row is a unique data point with all the columns liste
 
 Today we are going to take Lauren's data and make a simple plot. Lauren's data set consists of Mussels counts across 5 different microhabitat types (Tide pools, Unsheltered Solitary, Sheltered Aggregate, and Unsheltered Aggregate) in 3 different tidal zone (Low, Mid, High). She also has 10 replicate quadrats across each tidal zone and microhabitat type. When I asked Lauren how she wanted her data plotted she sent me this picture. :) So, this is what we are going to plot today!
 
-![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/LaurenDrawing.jpg)
+![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/LaurenDrawing.jpeg)
 
 
 ----------
@@ -136,7 +136,7 @@ x<-barplot(m) # m is our mussel mean data
 ```
 When we run this code we get a really simple plot below with all the defaults.
 
-![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/simpleplot.jpg)
+![simpleplot]({{ njsilbiger.github.io }}/images/Week2/simpleplot.png)
 
 
  The default is to stack the data on top of each other.  If this were % cover data it would be fine, but it is not so let's put them next to each other using beside=TRUE. Also, let's customize it a bit so that it is more informative. The names.arg says what we should name the x-axis.  You can also manually put in names to make it prettier. I also set the y axes from 0 to the max abundance across + SE the entire data set and I gave it a title of Low tide and a y-label of mussel density. Look at ?barplot to find all the ways that you can manipulate a barplot.
@@ -149,7 +149,11 @@ x<-barplot(m, # m is our mussel mean data
 
 This code will now create the plot below.
 
-![LowTide1]({{ njsilbiger.github.io }}/images/Week2/LowTide1.jpg)
+![LowTide1]({{ njsilbiger.github.io }}/images/Week2/LowTide1.png)
+
+Now, let's add error bars. One of the ways to make error bars in the base package with the function *arrows* which essentially adds an arrow from 
+ point x to point y in whatever direction that you want. I named the barplot above x. You will notice that now x is a 2 x 5 matrix.  These are the positions of the data (the bars in the figure) along the x-axis.  The first row is the adult and the second are the Juveniles
+
 
 ----------
 
