@@ -67,22 +67,89 @@ Data<-read.csv('Data/PandoriData.csv')
 ## Data analysis-----------------
 ```
 
+Before we start any data analysis it is always best to check your dataset and make sure that there are no errors. You can do this by using the head () and tail () function. This shows your the first 6 and last six rows of your data. Then you can see if there is anything weird and you can clean it
 
+```R
+# clean the data--------------
+# check the data
+head(Data)
+tail(Data)
+
+## there seems to be an extra row, probably because something was deleted
+
+#remove extra/unwanted column
+Data$X<-NULL
+
+```
 There is nothing worse than having a messy working directory.  One of the major benefits of coding is to create transparent and reproducible research.  Having a messy directory makes it difficult for outsiders to follow your code/data.
 
-For example, here is *what not to do*.  
+Our data is now in a clean *dataframe* (the name of the data strucutre).  You will notice that there are two different types of data in the dataframe. A *factor* and an *integer*. The factor are discrete data that have levels.  For example, Tide height here is a factor with levels low, mid, and high.  R automatically puts the levels in alphabetical order, but sometimes this does not make sense.  For example, high should go after mid, not before. So now we are going to order the factors a way that makes sense for Lauren's data. 
+
+```R
+# order the habitat data by level of environmental filtering:
+# 1. Unsheltered solitary (Usol), 2. Unsheltered aggregate (Uagg), 3. Sheltered solitary (Ssol),
+# 4. Sheltered aggregate (Sagg), 5. Tidepool (Tide)
+
+Data$Uhab <- ordered(Data$Uhab, levels = c("Usol", "Uagg", "Ssol","Sagg","Tide"))
+
+# check that they are ordered the correct way
+unique(Data$Uhab)
+
+#Let's do the same for tide height
+Data$TideHt<-ordered(Data$TideHt, levels = c("Low","Mid","High"))
+```
+
+Next, we want to take the averages by tide height, life stage, and habitat type to make the figure that she would like.  We are going to have an entire lesson on different ways to summarize data so I am not going to go into detail on different ways to do this.  I really like the *ddply* function from the *plyr* package so that is what I am going to use. 
 
 
-![BadDirectory]({{ njsilbiger.github.io }}/images/Week1/BadDirectory.png?raw=true =100x100)  
+```R
+## take the averages by tide height, juve/adult, and habitat
+Data.mean<-ddply(Data, c("TideHt","LifeStage","Uhab"), summarize,
+                 Abun.Mean = mean(Abun, na.rm=TRUE), # this is saying to take the mean and ignore missing data if there is any
+                 N = sum(!is.na(Abun)), # how many samples do you have (code says what is not a missing value and sum the counts)
+                 Abund.SE = sd(Abun)/sqrt(N) # this is the standard erre
+                 )
 
-Ah! My eyes! You can see that I have all sorts of data files, script files, and images all in the same folder and unless you are me, you can not tell what is what. So, let's set-up our new *RCodingClass* project so that it does not look like a crazy jumble.  
+# check the data
+Data.mean  #notice that it calculated the means and SE in the order that you specified above
+# Low, then Mid, then High, and same for the order for Uhab
 
-I typically create a minimum of two subfolders in my project directory: one for all my data files (e.g., .csv, etc.) and one for my output files (e.g., saved images). If I am writing a lot of functions, I will sometimes also have a subfolder for my functions and source them into my script. Some people like to also have a subfolder for all of their scripts, but that is personal preference and we will touch more on that later.    
- 
-A clean working directory looks something like this:  
-![CleanDirectory]({{ njsilbiger.github.io }}/images/Week1/CleanDirectory.png?raw=true =100x100)  
+```
 
-Much better... Now it is time to set-up your script  
+I now have a new dataframe with the averages and standard error values by each group that I am interested in visualizing. 
+
+Now let's plot the data.
+ first let's create a barplot with just the low tide data. Because we have 2 different groupings (Tide height and also Life stage), we need to make the data a matrix with adults on top and juveniles on the bottom. The below code will put the first 5 data points (adults) in one column and then the second 5 in the second column and then I used t to transpose it so that there are 5 columns and 2 rows. 
+
+```R
+# I created a matrix for the mean and named it m 
+m<-t(matrix(Data.mean$Abun.Mean[Data.mean$TideHt=='Low'],5,2))
+# a matrix for the SE and names it mse
+mse<- t(matrix(Data.mean$Abund.SE[Data.mean$TideHt=='Low'],5,2))    
+```
+
+Now let's create a barplot with this data.
+
+```R
+x<-barplot(m) # m is our mussel mean data
+        
+```
+When we run this code we get a really simple plot below with all the defaults.
+
+![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/simpleplot.jpg)
+
+
+ The default is to stack the data on top of each other.  If this were % cover data it would be fine, but it is not so let's put them next to each other using beside=TRUE. Also, let's customize it a bit so that it is more informative. The names.arg says what we should name the x-axis.  You can also manually put in names to make it prettier. I also set the y axes from 0 to the max abundance across + SE the entire data set and I gave it a title of Low tide and a y-label of mussel density. Look at ?barplot to find all the ways that you can manipulate a barplot.
+
+```R
+x<-barplot(m, # m is our mussel mean data
+        beside=TRUE, names.arg = unique(Data.mean$Uhab), ylim=c(0, max(Data.mean$Abun.Mean)+ max(Data.mean$Abund.SE)),
+        main='Low Tide', ylab="Mussel Density")
+```
+
+This code will now create the plot below.
+
+![LowTide1]({{ njsilbiger.github.io }}/images/Week2/LowTide1.jpg)
 
 ----------
 
