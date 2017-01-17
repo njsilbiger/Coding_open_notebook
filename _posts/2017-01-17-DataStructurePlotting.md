@@ -36,8 +36,7 @@ You can see now that every row is a unique data point with all the columns liste
 
 Today we are going to take Lauren's data and make a simple plot. Lauren's data set consists of Mussels counts across 5 different microhabitat types (Tide pools, Unsheltered Solitary, Sheltered Aggregate, and Unsheltered Aggregate) in 3 different tidal zone (Low, Mid, High). She also has 10 replicate quadrats across each tidal zone and microhabitat type. When I asked Lauren how she wanted her data plotted she sent me this picture. :) So, this is what we are going to plot today!
 
-![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/LaurenDrawing.jpeg)
-
+![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/LaurenDrawing.JPG?raw=true =200x200)
 
 ----------
 
@@ -151,9 +150,17 @@ This code will now create the plot below.
 
 ![LowTide1]({{ njsilbiger.github.io }}/images/Week2/LowTide1.png)
 
-Now, let's add error bars. One of the ways to make error bars in the base package with the function *arrows* which essentially adds an arrow from 
- point x to point y in whatever direction that you want. I named the barplot above x. You will notice that now x is a 2 x 5 matrix.  These are the positions of the data (the bars in the figure) along the x-axis.  The first row is the adult and the second are the Juveniles
+Now, let's add error bars. One of the ways to make error bars in the base package is with the function *arrows* which essentially adds an arrow from point x to point y in whatever direction that you want. I named the barplot above x. You will notice that now x is a 2 x 5 matrix.  These are the positions of the data (the bars in the figure) along the x-axis.  The first row is the adult and the second are the Juveniles
 
+```R
+# the code the add the arrows
+arrows(x, m + mse,  # x , mean + SE
+       x, m - mse,  # x, mean - SE
+       angle=90, code=3, length = 0.05) # angle is 90 degrees (180 is horizontal), code is the time of arrowhead, and 
+# length is the length of the arrow head
+
+```
+![LowTide2]({{ njsilbiger.github.io }}/images/Week2/LowTide2.png)
 
 ----------
 
