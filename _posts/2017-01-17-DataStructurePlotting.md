@@ -19,7 +19,7 @@ Lauren Pandori, a grad student in the Sorte Lab, supplied me with some of her da
 
 The first time that she sent me here data it was formatted like this:
 
-![ShortFormat]({{ njsilbiger.github.io }}/images/Week2/ShortFormat.png?raw=true =200x200)
+![ShortFormat]({{ njsilbiger.github.io }}/images/Week2/ShortFormat.png)
 
 There are two issues with this formatting:
 1) It is in short format.  You can see that ever quadrat has its own column.  This is completely fine for analyzing data in excel, but it is not appropriate for R.
