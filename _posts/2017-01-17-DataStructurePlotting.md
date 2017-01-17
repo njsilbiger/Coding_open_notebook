@@ -36,7 +36,7 @@ You can see now that every row is a unique data point with all the columns liste
 
 Today we are going to take Lauren's data and make a simple plot. Lauren's data set consists of Mussels counts across 5 different microhabitat types (Tide pools, Unsheltered Solitary, Sheltered Aggregate, and Unsheltered Aggregate) in 3 different tidal zone (Low, Mid, High). She also has 10 replicate quadrats across each tidal zone and microhabitat type. When I asked Lauren how she wanted her data plotted she sent me this picture. :) So, this is what we are going to plot today!
 
-![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/LaurenDrawing.jpg?raw=true =200x200)
+![LaurenDrawing]({{ njsilbiger.github.io }}/images/Week2/LaurenDrawing.jpg)
 
 
 ----------
