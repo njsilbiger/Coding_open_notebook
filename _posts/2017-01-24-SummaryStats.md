@@ -8,11 +8,9 @@ This post focuses on how to calculate simple summary statistics
 
 ----------
 
-## work in progress
-
 **What goes in your .csv and what goes in your R script** 
   
-Before I get into how to summarize your data, I wanted to have a brief discussion on what should go into your R script versus what should go into your .csv file. One of the major reasons to code is to have transparency in your analysis.  Therefore, your .csv file should have all of your raw data; nothing should be calculated even if it is easy.  For example, let's say you have a file with community data: each column is one species and each row is data from one site. In your file you have two different species of snails, but you only care about the total number of snails.  In excel, it is very easy to sum across these columns and add a new column for snails, but try to resist. It is way better to put this simple equation in R so that every can see what you did and why. Of course, there are always exceptions, but try as best as you can to include only raw data in your .csv file and all your calculations in your R code.  
+Before I get into how to summarize your data, I wanted to have a brief discussion on what should go into your R script versus what should go into your .csv file. One of the major reasons to code is to have transparency in your analysis.  Therefore, your .csv file should have all of your raw data; nothing should be calculated even if it is easy.  For example, let's say you have a file with community data: each column is one species and each row is data from one site. In your file you have two different species of snails, but you only care about the total number of snails.  In excel, it is very easy to sum across these columns and add a new column for snails, but try to resist. It is way better to put this simple equation in R so that everyone can see what you did and why. Of course, there are always exceptions, but try as best as you can to include only raw data in your .csv file and all your calculations in your R code.  
 
 ----------
 **Summary statistics**
@@ -23,7 +21,7 @@ Today, we are going to talk about how to summarize your data using the *plyr* pa
 install.packages('plyr')
 ```
 
-We will be using data from Piper to learn how to calculate various summary stats. Piper is looking at the vertical distribution patterns of different intertidal organisms. She has data on the lower and upper range limits of multiple species (tide heights) from 10 transects per site across 14 sites. Here is how your .csv file is set-up.   
+We will be using data from Piper to learn how to calculate various summary stats. Piper is looking at the vertical distribution patterns of different intertidal organisms. She has data on the lower and upper range limits of multiple species (tide heights) from 10 transects per site across 14 sites. Here is how her .csv file is set-up.   
 
 ![PiperData]({{ njsilbiger.github.io }}/images/Week3/PiperData.png?raw=true =200x200)
 
@@ -55,7 +53,7 @@ Data<-read.csv('Data/Vertical.csv')
 head(Data)
 tail(Data)
 ```
-Here, you will see that piper has two data columns, one for the lower limit within a transect (Min) and one for the upper limit (Max).  She is also interested in the over all range of each species, which is calculated as Max - Min.
+You will see that piper has two data columns: one for the lower range limit within a transect (Min) and one for the upper limit (Max).  She is also interested in the overall tidal range of each species, which is calculated as Max - Min.
 
 ```R
 # we create a new column in the dataframe for range
@@ -64,7 +62,7 @@ Data$Range<-Data$Max - Data$Min
 #check that it worked
 head(Data)
 ```
-Next, let's take her site names, which are factors, and order them by latitude so that when we make plots they will go from south to north instead of in alphabetical order. Last week, you will remember that we manually told R what order we wanted Lauren's microhabitats to be in. Here, Piper has latitude data associated with each site which makes it very easy to automate this step. Below, I used the function *order()* to produce the indices of the variable of interest in decending (or ascending, if you want) order. So, if I put order(Data$Latitude) then I will get values of 1 to the number of rows, where 1 is the southern most latitude and the highest number is the northern most. Then, I used the function *unique()* because the latitude and site names are repeated multiple times. 
+Next, let's take her site names, which are factors, and order them by latitude so that when we make plots they will be ordered from south to north instead of alphabetically. Last week, you will remember that we manually told R what order we wanted Lauren's microhabitats to be in. Here, Piper has latitude data associated with each site which makes it very easy to automate this step. Below, I used the function *order()* to produce the indices of the variable of interest in decending (or ascending, if you want) order. So, if I put order(Data$Latitude) then I will get values of 1 to the number of rows, where 1 is the southern most latitude and the highest number is the northern most. Then, I used the function *unique()* because the latitude and site names are repeated multiple times. 
 
 ```R
 # order the sites by latitude
@@ -72,7 +70,7 @@ Data$Site <- ordered(Data$Site, levels =unique(Data$Site[order(Data$Latitude)]) 
 
 ```
 
-Now, we will calculate means, SE, mins, and maxs of the different variables of interest across sites and species. To do this, we will use the *ddply* function from the *plyr* packages. To see the list of arguments required type in ?ddply into R.
+Now, we will calculate means, SE, mins, and maxs of the different variables of interest across sites and species. To do this, we will use the *ddply* function from the *plyr* packages. To see the list of arguments required type ?ddply into R.
 
 ```R
 ## take the average tide height by species (mussels and barnacles) and site
@@ -88,7 +86,7 @@ Data.summary<-ddply(Data, c("Site","Species"), summarize,
 )
 ```
 
-There is not a new data frame with all the summary stats that you want called *Data.summary*. Now, try to calculate summary stats for Region and Species on your own.
+There is now a new data frame with all the summary stats called *Data.summary*. Now, try to calculate summary stats for Region and Species on your own.
 
 We can now use this summary data to make a simple plot to visualize species overlap within the intertidal across sites. The plot below is a bit more complicated than last week. If you are unsure of what the different arguments mean remember that you can also use the help file by putting a ? in front of the function name.
 
