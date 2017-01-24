@@ -20,12 +20,12 @@ Before I get into how to summarize your data, I wanted to have a brief discussio
 Today, we are going to talk about how to summarize your data using the *plyr* package. If you do not already have this package on your computer then make sure to install it using the following code.
 
 ```R
-install.packages('plry')
+install.packages('plyr')
 ```
 
 We will be using data from Piper to learn how to calculate various summary stats. Piper is looking at the vertical distribution patterns of different intertidal organisms. She has data on the lower and upper range limits of multiple species (tide heights) from 10 transects per site across 14 sites. Here is how your .csv file is set-up.   
 
-![PiperData]({{ njsilbiger.github.io }}/images/Week3/PiperData.JPG?raw=true =200x200)
+![PiperData]({{ njsilbiger.github.io }}/images/Week3/PiperData.png?raw=true =200x200)
 
 First, let's set-up our scripts just like we learned in last weeks lesson.
 
