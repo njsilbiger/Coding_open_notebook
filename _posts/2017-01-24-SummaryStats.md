@@ -10,12 +10,12 @@ This post focuses on how to calculate simple summary statistics
 
 **What goes in your .csv and what goes in your R script** 
   
-Before I get into how to summarize your data, I wanted to have a brief discussion on what should go into your R script versus what should go into your .csv file. One of the major reasons to code is to have transparency in your analysis.  Therefore, your .csv file should have all of your raw data; nothing should be calculated even if it is easy.  For example, let's say you have a file with community data: each column is one species and each row is data from one site. In your file you have two different species of snails, but you only care about the total number of snails.  In excel, it is very easy to sum across these columns and add a new column for snails, but try to resist. It is way better to put this simple equation in R so that everyone can see what you did and why. Of course, there are always exceptions, but try as best as you can to include only raw data in your .csv file and all your calculations in your R code.  
+Before I get into how to summarize your data, I wanted to have a brief discussion on what should go into your R script versus what should go into your .csv file. One of the major reasons to code is to have transparency in your analysis.  Therefore, your .csv file should have all of your raw data; nothing should be calculated even if it is easy.  For example, let's say you have a file with community data: each column is one species and each row is data from one site. In your file you have two different species of snails, but you only care about the total number of snails across all species.  In excel, it is very easy to sum across these columns and add a new column for snails, but try to resist. It is way better to put this simple equation in R so that everyone can see what you did and why. Of course, there are always exceptions, but try as best as you can to include only raw data in your .csv file and all your calculations in your R code.  
 
 ----------
 **Summary statistics**
 
-Today, we are going to talk about how to summarize your data using the *plyr* package. If you do not already have this package on your computer then make sure to install it using the following code.
+Today, we are going to talk about how to summarize your data using the *plyr* package. If you do not already have this package installed on your computer then make sure to install it using the following code.
 
 ```R
 install.packages('plyr')
