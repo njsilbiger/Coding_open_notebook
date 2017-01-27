@@ -35,7 +35,7 @@ First, let's set-up our scripts just like we learned in last weeks lesson.
 ####################################################
 
 ## clear workspace---------
-rm(lists=ls())
+rm(list=ls())
 
 ## set working directory------
 setwd(getwd())
