@@ -39,4 +39,5 @@ colnames(df.melt)[1]<-'Row' # rename the first column as Row
 ```
 
 Here is what the output looks like:
+
 ![KrissyResults]({{ njsilbiger.github.io }}/images/Week4/KrissyResults.png?raw=true =200x200)
