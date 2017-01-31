@@ -21,6 +21,10 @@ I need to keep track of the original "location" of each of these sample names...
 
 For those of us that this means something to: The ultimate goal will be to match these plate maps with the primer plates I used to build 16S libraries."
 
+Here is what a 96-well plate looks like:
+
+![WellPlate]({{ njsilbiger.github.io }}/images/Week4/WellPlate.png?raw=true =200x200)
+
 Here is what her data looks like:
 
 ![KrissyData]({{ njsilbiger.github.io }}/images/Week4/KrissyData.png?raw=true =200x200)
