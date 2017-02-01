@@ -10,11 +10,11 @@ permalink: /about/
 
 **Week 3** - Calculating summary statistics using ddply
 
-**Week 4** - Intro to simple linear models and mixed effects models using the lme4 package
+**Week 4** - Intro to loops and logical statements 
 
-**Week 5** - Intro to generalized linear models using glm
+**Week 5** - Intro to simple linear models and mixed effects models using the lme4 package
 
-**Week 6** - Intro to loops and logical statements 
+**Week 6** - Intro to generalized linear models using glm
 
 **Week 7** - Intro to multivariate stats using the Vegan package (pca)
 
