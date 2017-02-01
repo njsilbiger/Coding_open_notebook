@@ -16,7 +16,7 @@ permalink: /about/
 
 **Week 6** - Intro to generalized linear models using glm
 
-**Week 7** - Intro to multivariate stats using the Vegan package (pca)
+**Week 7** - Intro to multivariate stats using the Vegan package 
 
 **Week 8** - TBA
 
