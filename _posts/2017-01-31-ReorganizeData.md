@@ -2,7 +2,7 @@
 layout: post
 title: Reorganize Data from wide to long format
 categories: R
-tags: [Data structure; plotting]
+tags: [Data structure, plotting]
 ---
 This post focuses on how to reorganize your data from a wide to a long format
 
