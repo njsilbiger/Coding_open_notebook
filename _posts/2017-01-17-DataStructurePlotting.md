@@ -2,7 +2,7 @@
 layout: post
 title: Data structure and simple plotting!
 categories: R
-tags: [Data structure; plotting]
+tags: [Data structure, plotting]
 ---
 This post focuses on proper data structure and some basic plotting techniques.
 
