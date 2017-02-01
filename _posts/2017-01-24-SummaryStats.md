@@ -2,7 +2,7 @@
 layout: post
 title: Summarize your data
 categories: R
-tags: [Data structure; plotting]
+tags: [Data structure, plotting]
 ---
 This post focuses on how to calculate simple summary statistics
 
