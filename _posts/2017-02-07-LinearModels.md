@@ -1,6 +1,6 @@
 ---
 layout: post
-title: For Loops and If-Else Statements
+title: Simple Linear Models
 categories: R
 tags: [for loop, plotting, if, lm]
 ---
