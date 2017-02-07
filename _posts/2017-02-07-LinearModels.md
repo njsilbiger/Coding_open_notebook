@@ -43,7 +43,7 @@ You will notice that I added some more information within the function. In addit
 mod<-lm( Data.summary$mean.Range ~  Data.summary$lat)
 ```
 
-However, this is still not quite right for Piper's data because she has 2 different species and we want to model them separately. To just model the effect of latitude on mussel range we can add another argument called *subset*. This code says to just use the Mussel data in the analysis 
+However, this is still not quite right for Piper's data because she has 2 different species and we want to model them separately. To model the effect of latitude on mussel range we can add another argument called *subset*. This code says to just use the Mussel data in the analysis 
 
 ```R
 mod<-lm(mean.Range~lat, data = Data.summary, subset= Data.summary$Species == 'Mussel')
@@ -55,12 +55,12 @@ The above code will model only mussels, but if you wanted to compare mussels and
 mod<-lm(mean.Range~lat*Species, data = Data.summary)
 ```
 
-The lat*Species it testing the effect of latitude, species, and the interaction between latitude and species on mean.Range. 
+The lat*Species is testing the effect of latitude, species, and the interaction between latitude and species on mean.Range. 
 
 ----------
 **Testing for normality of residuals and viewing results**
 
-So, what are the major assumptions of a linear regression? Answer: linear relationship, multivariate normality, no or little multicollinearity, no auto-correlation, homoscedasticity. I think one of the most confused assumption is the one based on normality.  The assumption is your **residuals** follow a normal distribution, NOT that your data are normal. The quickest way to check this assumption is to look at your quantile-quantile plot. It should look like a straight line. You can also test if your residuals using a Shapiro-Wilk normality test. [Here is a nice post on how to interpret your qqnorm plot](http://stats.stackexchange.com/questions/101274/how-to-interpret-a-qq-plot).
+So, what are the major assumptions of a linear regression? Answer: linear relationship, multivariate normality, no or little multicollinearity, no auto-correlation, homoscedasticity. I think one of the most confused assumption is the one based on normality.  The assumption is that your **residuals** follow a normal distribution, NOT that your data are normal. The quickest way to check this assumption is to look at your quantile-quantile plot. It should look like a straight line. You can also test if your residuals are normal using a Shapiro-Wilk normality test. [Here is a nice post on how to interpret your qqnorm plot](http://stats.stackexchange.com/questions/101274/how-to-interpret-a-qq-plot).
 
 ```R
 # test for normality of residuals
@@ -75,7 +75,7 @@ anova(mod)
 summary(mod)
 ```
 
-The anova function displays the ANOVA table for your model displays your coefficients, standard error values, and p-values for your various independent variables (as well as some other useful information). 
+The anova function displays the ANOVA table for your model and summary displays your coefficients, standard error values, and p-values for your various independent variables, r2 values and some other useful information. 
 
 ----------
 **Plotting your results**
