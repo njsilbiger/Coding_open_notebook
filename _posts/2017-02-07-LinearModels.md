@@ -21,7 +21,7 @@ The basic anatomy of a linear model is very simple:
 
 ***mod <- lm(y~x)***
 
-lm stands for linear model and inside the brackets is read as y (your dependent variable) is a function of x (your independent variable) and is called a *formula*. Formulas are a common format for many different statistical tests in R.  This code can also be used for a multiple linear regression.
+lm stands for linear model. Inside the brackets is read as y (your dependent variable) is a function of x (your independent variable) and is called a *formula*. Formulas are a common format for many different statistical tests in R.  This code can also be used for a multiple linear regression.
 
 ***mod <- lm(y ~ x1 + x2 + x3)***
 
