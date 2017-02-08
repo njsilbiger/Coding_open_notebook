@@ -10,7 +10,7 @@ This post focuses on how to write a simple linear model.
 
 **Quick note about statistics** 
  
-Today we are going to talk about how to code a simple linear model. Now that we are getting into some basic statistics, I want to make a point that this blog is focused on coding, not statistical theory. I am not going to spent much time discussing when or why to use different statistical tests, but will instead refer you to some of my favorite texts on the subject. Please, please, please, make sure that you understand your data and that it meets all the required assumptions of the different tests that we will run today and into the future. 
+Today we are going to talk about how to code a simple linear model. Now that we are getting into some basic statistics, I want to make a point that this blog is focused on coding, not statistical theory. I am not going to spend much time discussing when or why to use different statistical tests, but will instead refer you to some of my favorite texts on the subject. Please, please, please, make sure that you understand your data and that it meets all the required assumptions of the different tests that we will run today and into the future. 
 
 ----------
 **Linear Models**
