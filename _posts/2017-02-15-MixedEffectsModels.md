@@ -8,7 +8,7 @@ This post focuses on how to write a a random intercept, random slope and interce
 
 ----------
 
-#Work in progress# 
+#Work in progress
 
 **Mixed Effects Models**
 
