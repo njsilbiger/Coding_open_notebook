@@ -12,15 +12,15 @@ permalink: /about/
 
 **Week 4** - Intro to loops and logical statements 
 
-**Week 5** - Intro to simple linear models and mixed effects models using the lme4 package
+**Week 5** - Intro to simple linear models 
 
-**Week 6** - Intro to generalized linear models using glm
+**Week 6** - Mixed effects models using the nlme package
 
-**Week 7** - Intro to multivariate stats using the Vegan package 
+**Week 7** - Thinking ouside of normal: Different types of distributions for ecological data
 
-**Week 8** - TBA
+**Week 8** -  Intro to generalized linear models using glm
 
-**Week 9** - TBA
+**Week 9** - Intro to multivariate stats using the Vegan package
 
 **Week 10** - TBA
 
